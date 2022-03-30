@@ -1,8 +1,15 @@
-import express from 'express';
+import { createServer } from '@marblejs/http';
+import { IO } from 'fp-ts/lib/IO'
+import { listener } from './listeners/http.listener';
 
-const app = express();
-const port = 4000;
-app.get('/', (req, res) => {
-  res.send('The sedulous hyena ate the antelope!');
-});
-app.listen(port);
+const server = createServer({
+    port: 4000,
+    hostname: '0.0.0.0',
+    listener
+})
+
+const main: IO<void> = async () => {
+    await (await server)()
+}
+
+main()
