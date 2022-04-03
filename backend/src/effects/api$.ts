@@ -1,10 +1,10 @@
 import { r } from '@marblejs/http';
-import { mapTo } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export const api$ = r.pipe(
     r.matchPath('/'),
     r.matchType('GET'),
     r.useEffect(req$ => req$.pipe(
-        mapTo({body: JSON.stringify({'Hello':'World!'})})
+        map(() => ({body: JSON.stringify({'Hello':'World!'})}))
     ))
 )
