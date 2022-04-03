@@ -7,7 +7,7 @@ export default function HeaderWrapper() {
   return (
     <Header background='brand' justify='stretch'>
         <Button icon={<BladesVertical />} hoverIndicator onClick={()=>setSidebar(!sidebar)}/>
-        <Heading alignSelf='center' level={3} margin='none'>Header</Heading>
+        <Heading alignSelf='center' level={3} margin='none'>Wirtschaftendas</Heading>
     </Header>
   )
 }
